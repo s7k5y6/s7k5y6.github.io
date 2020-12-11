@@ -1,0 +1,302 @@
+@charset "UTF-8";
+
+
+/* Basic Setting */
+
+
+* {
+	margin: 0;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Setting for Overall Page*/
+body {
+	display: grid;
+	grid-template-columns: 20px 1fr 20px;        /* 1fr =  after subtracting both sidespace */
+	grid-template-rows: 
+		[head]100px;
+		[title] auto
+		[sub] auto
+		[recent] auto
+		[foot] 100px;
+	grid-row-gap: 20px;
+	row-gap: 20px;
+	font-family: sans-serif;
+}
+
+
+/* location of parts */
+body > * {
+	grid-column: 2 / -2;
+}
+
+/* header */
+header {
+	grid-row: head;
+	justify-self: center;
+	align-self: center;
+	font-size: 40px;
+	color: #555d6b;
+}
+
+header a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Navigation Menu */
+nav {
+	grid-row: head;
+	justify-self: center;
+	align-self: end;
+}
+
+nav ul {				/* (ulã®å‰ã«navã‚’ç½®ãã“ã¨ã§)ä»–ãEãƒªãƒ³ã‚¯ã«CSSãŒé©ç”¨ã•ã‚Œã‚‹ãEã‚’é˜²ãE*/
+	list-style-type: none;		/* ãƒªã‚¹ãƒˆãEãƒ¼ã‚¯ã‚’å‰Šé™¤ */
+	padding: 0;			/* ãƒªã‚¹ãƒˆãEãƒ¼ã‚¯ã‚’å‰Šé™¤ */
+	display: grid;			/* ãƒªãƒ³ã‚¯ã‚’æ¨ªã«ä¸¦ã¹ã‚E1) */
+	grid-auto-flow: column;		/* ãƒªãƒ³ã‚¯ã‚’æ¨ªã«ä¸¦ã¹ã‚E2) */
+	glid-column-gap: 20px;		/* ãƒªãƒ³ã‚¯ã®é–“ã«ä½™ç™½ã‚’åEã‚Œã‚‹ */
+	column-gap: 20px;		/* ãƒªãƒ³ã‚¯ã®é–“ã«ä½™ç™½ã‚’åEã‚Œã‚‹ */
+}
+
+nav a {					/* (ulã®å‰ã«navã‚’ç½®ãã“ã¨ã§)ä»–ãEãƒªãƒ³ã‚¯ã«CSSãŒé©ç”¨ã•ã‚Œã‚‹ãEã‚’é˜²ãE*/
+	color: #666666;			/* ãƒªãƒ³ã‚¯ã®è‰²ã‚’è§£é™¤ */
+	text-decoration: none;		/* ãƒªãƒ³ã‚¯ã®ä¸‹ç·šãEãƒE‚¶ã‚¤ãƒ³ã‚’è§£é™¤ */
+	font-size: 12px;
+	font-weight: bold;
+}
+
+nav a:hover {				/* (ulã®å‰ã«navã‚’ç½®ãã“ã¨ã§)ä»–ãEãƒªãƒ³ã‚¯ã«CSSãŒé©ç”¨ã•ã‚Œã‚‹ãEã‚’é˜²ãE*/ /* ãƒªãƒ³ã‚¯ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’é‡ã­ãŸæ™‚ã®è‰²ã‚’æŒ‡å®E*/
+	color: #ef9504;
+}
+/************************************************** Hero Image **************************************************/
+figure.hero {				/* ä»–ãEç”»åƒã¨ã®åŒºåˆ¥ã®ãŸã‚heroç”»åƒã«hereã‚¯ãƒ©ã‚¹ã‚’æŒ‡å®šã€‚ãã®ãŸã‚é©ç”¨å…ˆã‚’ã€Œfigure(ã‚»ãƒ¬ã‚¯ã‚¿)ã€âEã€Œfigure.hero(ã‚»ãƒ¬ã‚¯ã‚¿.ã‚¯ãƒ©ã‚¹)ã€ã«å¤‰æ›´*/
+	grid-column: 1 / -1;
+	grid-row: title / span 2;
+}
+
+figure.hero img {
+	height: 547px;
+	object-fit: cover;		/* ç”»åƒã‚’åˆE‚Šå‡ºã—ã¦ç¸¦æ¨ªæ¯”ãŒå´©ã‚ŒãªãE‚ˆãE«ã™ã‚‹ */
+	vertical-align: bottom;
+	filter: brightness(70%);	/* ç”»åƒãEæ˜Žã‚‹ã•ã‚’èª¿æ•´ */
+	z-index: -1;			/* ç”»åƒãEé‡ãªã‚Šé E‚’æŒE®E(æ•°å€¤ãŒå¤§ãã„ã»ã©ä¸E */
+	position: relative; 		/* for the setting for Microsoft Edge */
+}
+
+
+/************************************************** Title **************************************************/
+h1 {
+	grid-row: title;
+	justify-self: center;		/* æ–E­—ãEè¡¨ç¤ºä½ç½®ã‚’èª¿æ•´ (æ¨ªæ–¹åE */
+	align-self: center;		/* æ–E­—ãEè¡¨ç¤ºä½ç½®ã‚’èª¿æ•´ (ç¸¦æ–¹åE */
+	color: #ffffff;
+	font-size: 50px;
+	font-weight: normal;
+	line-height: 1.2; 		/* è¡ŒãEé«˜ã•ã®èª¿æ•´ (è¡ŒãEé«˜ã•ã‚’ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºã®ä½•å€ãEå¤§ãã•ã§å‡¦çE™ã‚‹ã‹ */
+	text-shadow: 0 0 5px #444444;	/* æ–E­—ã«å½±ã‚’ã¤ã‘ã‚‹ (æ¨ªæ–¹å‘ã«ãšã‚‰ã™px ç¸¦æ–¹å‘ã«ãšã‚‰ã™px ã¼ã‹ã—å¹Ex è‰²) */
+	text-align: center;		/* ä¸­èº«ã®æ–E­—ãEè¡ŒæƒãˆãEæŒE®E(ãƒœãƒƒã‚¯ã‚¹ã®ã‚µã‚¤ã‚ºã‚E¡¨ç¤ºä½ç½®ã¯ä¸å¤E */
+}		
+
+
+/************************************************** Subtitle **************************************************/
+p {
+	grid-row: sub;
+	text-align: center;		/* Align DecorativeImage & Text in the center */
+}
+
+p a {				/* ä»¥ä¸‹ã€ã‚µãƒ–ã‚¿ã‚¤ãƒˆãƒ«ã«ã¤ãE¦ */
+	color: #ffffff;			/* Undesign COLOR of the link */
+	text-decoration: none;		/* Undesign UNDERLINE of the link */
+	border: solid 1px #ffffff;	/* Surround the link with a BORDER€ */
+	padding: 10px 40px;		/* Put a MARGIN inside the border */
+	display: inline-block;		/* Make the BORDER or PADDING affect the Positional-Relationship to the Decorative-Image */
+	margin-top: 10px;		/* Widen the distance b/w BORDER & Image byAdding MARGIN */
+	border-radius: 10px;		/* Round the corners */
+	background-color: rgba(85, 93, 107, 0.5);	/* Color the background to make it translucent */
+}
+
+p a:hover {				/* Specify the Background-Color when the CURSOR is over the link */
+	background-color: #ef9504;
+}
+
+p img {
+	width: 250px;			/* Make the DecorativeImage smaller */
+}
+
+/************************************************** Article List **************************************************/
+section {
+	grid-row: recent;
+	display: grid;			/* Arrange the Article-list in two Columns */
+	grid-template-colums: 1fr 1fr;	/* Arrange the Article-list in two Columns (1:1 (ratio)) */
+	grid-gap: 20px 10px;		/* Put a margin between articles */
+	gap: 20px 10px;
+}
+
+section a {
+	color: #000000;			/* Undesign COLOR of the link * */
+	text-decoraqtion: none;		/* Undesign UNDERLINE of the link * */
+}
+
+section a : hover {
+	text-decoration: underline;	/* Show underline when Hovering Over a link */
+}
+
+
+section h2 {
+	font-size: 14px;		/* Adjust font-size */
+}
+
+/************************************************** Footer **************************************************/
+footer {
+	grid-row: foot;
+	justify self: center;		/* Adjust the display position of the copyright */
+	align-self: center;		/* Adjust the display position of the copyright */
+	font-size: 13px;		/* Adjust the font-size of the copyright */
+}
+
+/************************************************** Footer Bar **************************************************/
+/*To design the footer in the shape of a bar, "the elements that MAKE-UP the bar" need to be added by using CSS */
+
+body::after {
+	content:"";			/* Specify the contents of the Pseudo-ElementE*/
+	background-color: #eeeeee;
+	grid-colomn: 1 / -1;		/* Pt Copy-Right UP */
+	grid-row: foot;			/* è¡ŒãEé…ç½®å…ˆã‚’ãƒ•ãƒƒã‚¿ãƒ¼ã¨åŒã˜è¡Œã«ã™ã‚‹ãŸã‚ */
+	z-index: -1;			/* ã‚³ãƒ”ãEãƒ©ã‚¤ãƒˆã‚’ä¸Šã«ã™ã‚‹ */
+}
+
+/************************************************** PC setting for OVERALL PAGE  **************************************************/		
+body {
+	/* Specify the structure of the columns in the grid */
+	grid-template-columns: 0.2fr repeat(6,1fr) 0.2fr;	/* Describe all Column-Width-Values ??together */
+	grid-column-gap* 5%;		/* Put a gap between the rows */
+	column-gap; 5%;	
+	/* Specify the structure of the rows in the grid */
+	grid-template-rows:
+		[head] 100px
+		[title sub] auto
+		[recent] auto
+		[foot] 100px;
+}
+
+/****************************** PC ver.:HeroImage  ******************************/		
+figure.hero {
+	grid-row: title;		/* Adjust the placement of the Row of HeroImage */
+	margin-top: -20px;		/* Adjust the spacing b/w the Header and the HeroImage */
+}
+
+
+/****************************** PC ver.:Title  ******************************/		
+h1 {
+	grid-column: 2 / span 3;	/* Adjust the placement of the Row of Title */
+}
+
+/****************************** PC ver.:Subtitle  ******************************/		
+p {
+	grid-column: 5 / span 3;	/* Adjust the placement of the Row of Subtitle */
+	align-self: center;		/* Adjust the vertical display position of Subtitle */
+}
+
+p img {
+	width: 80%;		        /* Enlarge the DecorativeImage */
+}
+
+/****************************** PC ver.:Header  ******************************/		
+header {
+	justify-self: start;	/* Arrange SiteName on the far left */
+}
+
+/****************************** PC ver.:NavigationMenu  ******************************/		
+nav {
+	justify-self: end;	/* Arrange NavigationMenu on the far right */
+	align-self: center;
+}
+
+/****************************** PC ver.:Article Lists  ******************************/		
+section {
+	grid-template-columns: repeat(4,1fr);		/* Make the Articlelist a 4-column layout */
+	grid-column-gap: 20px;				/* Adjust article spacing */
+
+	column-gap: 20px;
+}
+	
+/* è¨˜äº‹ãEãƒ¼ã‚¸ */
+.post {
+	grid-template-rows:
+		[head] 100px
+		[kiji] auto
+		[submenu] auto
+		[foot] 100px;
+}
+
+/* è¨˜äº‹ãEãƒ¼ã‚¸:è¨˜äºE*/
+.post article {	
+	grid-row: kiji;
+}
+
+/* è¨˜äº‹ãEãƒ¼ã‚¸:ã‚µãƒ–ãƒ¡ãƒ‹ãƒ¥ãƒ¼ */
+.post div {	
+	grid-row: submenu;
+}
+
+aside ul {
+	list-style-type: none;
+	padding: 0;
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: solid 1px #cccccc;
+	padding: 20px
+}
+
+th {
+	width: 4em;
+	text-align: left;
+	background-color: #555d6b;
+	color: #ffffff;
+}
+
+td {
+	background-color: #e8eef9;
+}
+
+/* CONTACT PAGE */
+form p {
+	margin-bottom: 20px;
+{
+
+input, textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+textarea {
+	height: 120px;
+}
+
+input[type = "submit"] {
+	background-color: #ffaa00;	/* change COLOR of "Submit button" */ 
+	border: none;
+	-webkit-appearance: none;	/* adjust "Submit button" for iOS */ 
+}
+
+/* ===== PC version's setting START ===== */
+@media (min-width: 768px)){
+
+/* ===== PC version's CONTACT PAGE ===== */[
+input[type="submit"] {
+	width: 250px;
+}
+/* ===== PC version's setting END ===== */
